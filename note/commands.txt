@@ -1,0 +1,37 @@
+// run dev server
+ng serve
+
+//build
+ng build [project]
+ng build --base-href /ctcb/
+
+//componets
+//E:\MyProject\projects\VASIntegration\GoApp\VGEcoreSMSCamp\webSvelte\vg_ecore_sms_ibm.2206\src\app\views\ctcb
+ng g c ctcb-agent
+ng g m ctcb-agent --routing
+ng g m vc-campaign-import --routing
+//in src
+ng g c app/views/vc-campaign
+ng g m app/views/vc-campaign --routing
+
+ng g c app/views/vc-campaign/vc-campaign-import
+ng g c app/views/vc-campaign/vc-campaign-summary-month
+ng g c app/views/vc-campaign/vc-campaign-summary-month-day
+ng g c app/views/vc-campaign/vc-campaign-report
+
+http://localhost:4200/#/ctcb-agent
+
+
+ng update @angular/core@9 @angular/cli@9
+
+# Install npm-check-updates
+$ npm i -g npm-check-updates
+
+# Run npm-check-updates with -u, will upgrade package.json
+$ ncu -u
+
+# Install updated packages
+$ npm install
+
+
+npm install --save export-to-csv

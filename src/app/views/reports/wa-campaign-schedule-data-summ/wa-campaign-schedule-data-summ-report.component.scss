@@ -1,0 +1,94 @@
+
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: #41295a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #2f0743,
+      #41295a
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #2f0743,
+      #41295a
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .col {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-field {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 5px;
+    //border-radius: 5px;
+    //padding: 10px 20px;
+  }
+  
+  id{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .center {
+    justify-content: center;
+  }
+  .main-body{
+      padding-top: 25px;
+      max-width: 1248px;
+      margin: 2 auto;
+      table, th, td {
+         
+          border: 2px solid black;
+          color:black;
+          text-align: center;
+          padding-left: 25px;
+          padding-right: 20px;
+          padding-bottom: 25px;
+        }
+       
+        table {
+          border-collapse: collapse;
+          width: 100%; 
+        }
+        th{
+          background-color: green;
+          color:white;
+        }
+        
+      td {
+          text-align: center;
+          white-space: nowrap;
+          border:2px solid black;
+        }
+      mat-form-field{
+          width: 100%;      
+      }
+     
+  }
+  

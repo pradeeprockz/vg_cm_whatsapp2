@@ -1,0 +1,71 @@
+<h1 align ="center" class ="text-primary">GreetFlow Delete Components </h1>
+<div>
+    <table class="container">
+        <tr>
+            <th> slno</th>
+            <td>{{deletecgreetflow.slno}}</td>
+        </tr>
+        <tr>
+            <th>subapp_name</th>
+            <td>{{deletecgreetflow.subapp_name}}</td>
+        </tr>
+        <tr>
+            <th>level_name</th>
+            <td>{{deletecgreetflow.level_name}}</td>
+        </tr>
+        <tr>
+            <th>appand_text</th>
+            <td>{{deletecgreetflow.appand_text}}</td>
+        </tr>
+        <tr>
+            <th>level_name</th>
+            <td>{{deletecgreetflow.level_name}}</td>
+        </tr>
+        <tr>
+            <th>old_level</th>
+            <td>{{deletecgreetflow.old_level}}</td>
+        </tr>
+        <tr>
+            <th>next_level</th>
+            <td>{{deletecgreetflow.next_level}}</td>
+        </tr>
+        <tr>
+            <th>input</th>
+            <td>{{deletecgreetflow.input}}</td>
+        </tr>
+        <tr>
+            <th>text_content</th>
+            <td>{{deletecgreetflow.text_content}}</td>
+        </tr>
+        <tr>
+            <th>type_content</th>
+            <td>{{deletecgreetflow.type_content}}</td>
+        </tr>
+        <tr>
+            <th>content_path</th>
+            <td>{{deletecgreetflow.content_path}}</td>
+        </tr>
+        <tr>
+            <th>remarks</th>
+            <td>{{deletecgreetflow.remarks}}</td>
+        </tr>
+        <tr>
+            <th>enable</th>
+            <td>{{deletecgreetflow.enable}}</td>
+        </tr>
+        
+
+
+    </table>
+</div>
+<div class="btn-toolbar">
+    <button cButton style="float: right; margin-right: 30px;" (click)="deleteDoGreetFlow()">Delete</button>
+    <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+</div> <br /><br />
+<div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h2>GreetFlow Delete Components is successfully deleted</h2>
+</div>
+<div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+    <h2>{{error_message}}</h2>
+</div>
+

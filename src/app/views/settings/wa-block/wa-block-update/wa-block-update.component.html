@@ -1,0 +1,49 @@
+<h1 align="center" class="text-primary"> Update Wa Block </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+
+<div class="container">
+    <form cForm class="row g-3" *ngIf="isAuthenticated">
+        <c-col [md]="3">
+            <label cLabel for="inputcustomer_number">customer_number</label>
+            <input cFormControl id="inputcustomer_number" instime="customer_number"
+                [(ngModel)]="updatewablock.customer_number" [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="3">
+            <label cLabel for="inputclient_id">client_id</label>
+            <input cFormControl id="inputclient_id" instime="client_id" [(ngModel)]="updatewablock.client_id"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="3">
+            <label cLabel for="inputin_out">in_out</label>
+            <select cSelect id="inputType" [(ngModel)]="updatewablock.in_out" [ngModelOptions]="{standalone: true}">
+                <option value="0">out</option>
+                <option value="1">in</option>
+                <option value="2">both</option>
+            </select>
+        </c-col>
+        <c-col [md]="3">
+            <label cLabel for="inputinstime">instime</label>
+            <input cFormControl id="inputinstime" instime="instime" [(ngModel)]="updatewablock.instime"
+                [ngModelOptions]="{standalone: true}" disabled/>
+        </c-col>
+        <div fxLayout="row">
+            <mat-slide-toggle [(ngModel)]="updatewablock.enable" [ngModelOptions]="{standalone: true}">
+                enable
+            </mat-slide-toggle>
+        </div>
+    </form>
+    <div>
+        <div class="btn-toolbar">
+            <button cButton style="float: right; margin-right: 30px;" (click)="updateWaBlock()">Update</button>
+            <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+        </div>
+    </div>
+
+    <div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+        <h3> wa block was updated!</h3>
+        <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+            mat-flat-button color="warn">Close</button>
+    </div>
+    <div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+        <h3>{{error_message}}</h3>
+    </div>

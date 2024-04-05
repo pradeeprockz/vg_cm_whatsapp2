@@ -1,0 +1,78 @@
+<h1 align="center" class="text-primary"> Update GreetFlow </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+<div class="container">
+    <form cForm class="row g-3" *ngIf="isAuthenticated">
+        <c-col [md]="4" >
+            <label cLabel for="inputsubapp_name">subapp_name</label>
+            <input cFormControl id="inputsubapp_name" type="subapp_name" [(ngModel)]="updategreetflow.subapp_name"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputlevel_name">level_name</label>
+            <select cSelect id="inputlevel_name" [(ngModel)]="updategreetflow.level_name" [ngModelOptions]="{standalone: true}">
+              <option>----</option>
+              <option *ngFor="let levelName of levelNames" [value]="levelName">{{levelName}} </option>
+            </select>
+          </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputold_level">old_level</label>
+            <select cSelect id="inputold_level" [(ngModel)]="updategreetflow.old_level" [ngModelOptions]="{standalone: true}">
+                <option>----</option>
+                <option *ngFor="let oldLevel of levelNames" [value]="oldLevel">{{oldLevel}} </option>
+              </select>
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputnext_level">next_level</label>
+            <select cSelect id="inputnext_level" [(ngModel)]="updategreetflow.next_level" [ngModelOptions]="{standalone: true}">
+                <option>----</option>
+                <option *ngFor="let nextLevel of levelNames" [value]="nextLevel">{{nextLevel}} </option>
+              </select>
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputinput">input</label>
+            <input cFormControl id="inputinput" [(ngModel)]="updategreetflow.input"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputappand_text">appand_text</label>
+            <input cFormControl id="inputappand_text" type="appand_text" [(ngModel)]="updategreetflow.appand_text"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputtype_content">type_content</label>
+            <input cFormControl id="inputtype_content" type="type_content" [(ngModel)]="updategreetflow.type_content"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputtext_content">text_content</label>
+            <input cFormControl id="inputtext_content" [(ngModel)]="updategreetflow.text_content"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputcontent_path">content_path</label>
+            <input cFormControl id="inputcontent_path" [(ngModel)]="updategreetflow.content_path"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputremarks">remarks</label>
+            <input cFormControl id="inputremarks" [(ngModel)]="updategreetflow.remarks"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <mat-slide-toggle [(ngModel)]="updategreetflow.enable" [ngModelOptions]="{standalone: true}">
+            enable
+        </mat-slide-toggle>
+        <div class="btn-toolbar">
+            <button cButton style="float: right; margin-right: 30px;" (click)="updatedoGreetFlow()">Update</button>
+            <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+        </div>
+    </form>
+
+    <div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+        <h3> Greet Flow was updated!</h3>
+        <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+            mat-flat-button color="warn">Close</button>
+    </div>
+    <div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+        <h3>{{error_message}}</h3>
+    </div>
+</div>

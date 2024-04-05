@@ -1,0 +1,50 @@
+<h1 align="center" class="text-primary"> Update CMS Components </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+<div class="container">
+    <form cForm class="row g-3" *ngIf="isAuthenticated">
+        <c-col [md]="4">
+            <label cLabel for="inputClientNumber">client_number</label>
+            <input cFormControl id="inputEmail4" type="client_number" [(ngModel)]="updatecmscomponents.client_number"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputSName">sname</label>
+            <input cFormControl id="inputSName" type="sname" [(ngModel)]="updatecmscomponents.sname"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputType">Type</label>
+            <select cSelect id="inputType" [(ngModel)]="updatecmscomponents.type"
+            [ngModelOptions]="{standalone: true}">
+                <option value="body">body</option>
+                <option value="header">header</option>
+            </select>
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputElementName">sub_type</label>
+            <input cFormControl id="inputIndex" [(ngModel)]="updatecmscomponents.sub_type"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputIndex">index</label>
+            <input cFormControl id="inputIndex" [(ngModel)]="updatecmscomponents.index"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <mat-slide-toggle [(ngModel)]="updatecmscomponents.parameters" [ngModelOptions]="{standalone: true}">
+            parameters
+        </mat-slide-toggle>
+        <div class="btn-toolbar">
+            <button cButton style="float: right; margin-right: 30px;" (click)="updatedoCmsComponents()">Update</button>
+            <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+        </div>
+    </form>
+
+    <div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+        <h3> Cms Components was updated!</h3>
+        <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+            mat-flat-button color="warn">Close</button>
+    </div>
+    <div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+        <h3>{{error_message}}</h3>
+    </div>
+</div>

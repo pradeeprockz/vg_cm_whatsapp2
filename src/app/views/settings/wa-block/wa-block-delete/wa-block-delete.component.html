@@ -1,0 +1,44 @@
+<h1 align ="center" class ="text-primary"> Delete Wa Block </h1>
+<div>
+    <table class="container">
+        <tr>
+            <th> id</th>
+            <td>{{deletewablock.id}}</td>
+        </tr>
+        <tr>
+            <th>customer_number</th>
+            <td>{{deletewablock.customer_number}}</td>
+        </tr>
+        <tr>
+            <th>client_id</th>
+            <td>{{deletewablock.client_id}}</td>
+        </tr>
+        <tr>
+            <th>in_out</th>
+            <td>{{deletewablock.in_out}}</td>
+        </tr>
+        <tr>
+            <th>instime</th>
+            <td>{{deletewablock.instime}}</td>
+        </tr>
+        <tr>
+            <th>enable</th>
+            <td>{{deletewablock.enable}}</td>
+        </tr>
+       
+        
+
+
+    </table>
+</div>
+<div class="btn-toolbar">
+    <button cButton style="float: right; margin-right: 30px;" (click)="deleteWaBlock()">Delete</button>
+    <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+</div> <br /><br />
+<div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h2>Cms Delete Components is successfully deleted</h2>
+</div>
+<div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+    <h2>{{error_message}}</h2>
+</div>
+

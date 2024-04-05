@@ -1,0 +1,32 @@
+table {    
+    width: 80%;
+    padding:0 0 45px !important;
+    border-collapse:collapse;
+    border-spacing:10px;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td{
+    border-collapse: separate;
+    border-spacing:  0px;
+    border:1px solid gray;
+    text-align: center;
+    white-space: nowrap;        
+    border-bottom:1px solid red;
+    border-left:1px solid red;    
+}
+
+th {
+    width: 8%;
+    white-space: nowrap;    
+    border-spacing:  50px;
+    border:1px solid gray;
+    text-align: justify;
+    //font-weight: bold;
+    color: darkblue;
+    font-size: medium;
+}

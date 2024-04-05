@@ -1,0 +1,78 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-alert
+          color="primary"
+          *ngIf="visible"
+          class="alert alert-danger"
+          role="alert"
+        >
+          {{ error_message }}
+        </c-alert>
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form cForm>
+                <h1>Login</h1>
+                <p class="text-medium-emphasis">Sign In to your account</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input
+                    [(ngModel)]="username"
+                    autoComplete="username"
+                    cFormControl
+                    placeholder="Username"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                    [(ngModel)]="password"
+                    [ngModelOptions]="{ standalone: true }"
+                    autoComplete="current-password"
+                    cFormControl
+                    placeholder="Password"
+                    type="password"
+                  />
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>User type</mat-label>
+                    <mat-select [formControl]="userTypeFormControl" required>
+                      <mat-option value="">-</mat-option>
+                      <mat-option value="customer">customer</mat-option>
+                      <mat-option value="agent">Agent</mat-option>
+                      <mat-option value="admin">Admin</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button
+                      cButton
+                      class="px-4"
+                      color="primary"
+                      (click)="onSubmit()"
+                      type="submit"
+                    >
+                      Login
+                    </button>
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

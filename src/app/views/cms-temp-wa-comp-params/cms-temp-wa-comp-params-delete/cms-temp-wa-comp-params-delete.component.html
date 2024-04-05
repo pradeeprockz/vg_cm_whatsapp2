@@ -1,0 +1,76 @@
+<h1 align ="center" class ="text-primary">Cms Delete Temp Wa Comp Params </h1>
+<div>
+    <table class="container">
+        <tr>
+            <th> id</th>
+            <td>{{deletecmstempwacompparams.id}}</td>
+        </tr>
+        <tr>
+            <th>client_number</th>
+            <td>{{deletecmstempwacompparams.client_number}}</td>
+        </tr>
+        <tr>
+            <th>sname</th>
+            <td>{{deletecmstempwacompparams.sname}}</td>
+        </tr>
+        <tr>
+            <th>components_id</th>
+            <td>{{deletecmstempwacompparams.components_id}}</td>
+        </tr>
+        <tr>
+            <th>type</th>
+            <td>{{deletecmstempwacompparams.type}}</td>
+        </tr>
+        <tr>
+            <th>param_name</th>
+            <td>{{deletecmstempwacompparams.param_name}}</td>
+        </tr>
+        <tr>
+            <th>currency_fallback_value</th>
+            <td>{{deletecmstempwacompparams.currency_fallback_value}}</td>
+        </tr>
+        <tr>
+            <th>currency_code</th>
+            <td>{{deletecmstempwacompparams.currency_code}}</td>
+        </tr>
+        <tr>
+            <th>date_time</th>
+            <td>{{deletecmstempwacompparams.date_time}}</td>
+        </tr>
+        <tr>
+            <th>msg_text</th>
+            <td>{{deletecmstempwacompparams.msg_text}}</td>
+        </tr>
+        <tr>
+            <th>media_name</th>
+            <td>{{deletecmstempwacompparams.media_name}}</td>
+        </tr>
+        <tr>
+            <th>mime_type</th>
+            <td>{{deletecmstempwacompparams.mime_type}}</td>
+        </tr>
+        <tr>
+            <th>media_uri</th>
+            <td>{{deletecmstempwacompparams.media_uri}}</td>
+        </tr>
+        <tr>
+            <th>enable</th>
+            <td>{{deletecmstempwacompparams.enable}}</td>
+        </tr>
+        <tr>
+            <th>is_edit</th>
+            <td>{{deletecmstempwacompparams.is_edit}}</td>
+        </tr>
+
+    </table>
+</div>
+<div class="btn-toolbar">
+    <button cButton style="float: right; margin-right: 30px;" (click)="deletedoCmsTempWaCompParams()">Delete</button>
+    <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+</div> <br /><br />
+<div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h2>Cms Delete Temp Wa Comp Params is successfully deleted</h2>
+</div>
+<div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+    <h2>{{error_message}}</h2>
+</div>

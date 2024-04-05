@@ -1,0 +1,101 @@
+<h1 align="center" class="text-primary"> Update CMS Template </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+<div class="container">
+    <form cForm class="row g-3" *ngIf="isAuthenticated">
+        <c-col [md]="4">
+            <label cLabel for="inputClientNumber">client_number</label>
+            <input cFormControl id="inputEmail4" type="client_number" [(ngModel)]="updatecmstemplate.client_number"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputSName">sname</label>
+            <input cFormControl id="inputSName" type="sname" [(ngModel)]="updatecmstemplate.sname"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputTemplate_wa_namespace">template_wa_Namespace</label>
+            <input cFormControl id="inputTemplate_wa_namespace" [(ngModel)]="updatecmstemplate.template_wa_Namespace"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputElementName">template_wa_elementname</label>
+            <input cFormControl id="inputlanguage_policy" [(ngModel)]="updatecmstemplate.template_wa_elementname"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputlanguage_policy">language_policy</label>
+            <input cFormControl id="inputlanguage_policy" [(ngModel)]="updatecmstemplate.language_policy"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputlanguage_code">language_code</label>
+            <input cFormControl id="inputlanguage_code" [(ngModel)]="updatecmstemplate.language_code"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmsg_text">msg_text</label>
+            <input cFormControl id="inputmsg_text" type="msg_text" [(ngModel)]="updatecmstemplate.msg_text"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputcontacts">contacts</label>
+            <input cFormControl id="inputcontacts" [(ngModel)]="updatecmstemplate.contacts"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputloacation_latitude">loacation_latitude</label>
+            <input cFormControl id="inputloacation_latitude" [(ngModel)]="updatecmstemplate.location_latitude"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputlocation_longitude">location_longitude</label>
+            <input cFormControl id="inputlocation_longitude" [(ngModel)]="updatecmstemplate.location_longitude"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputLable">lable</label>
+            <input cFormControl id="inputLable" [(ngModel)]="updatecmstemplate.lable"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputsearch_query">search_query</label>
+            <input cFormControl id="inputsearch_query" [(ngModel)]="updatecmstemplate.search_query"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputMedia_Name">media_name</label>
+            <input cFormControl id="inputMedia_Name" [(ngModel)]="updatecmstemplate.media_name"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmedia_uri">media_uri</label>
+            <input cFormControl id="inputmedia_uri" [(ngModel)]="updatecmstemplate.media_uri"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmime_type">mime_type</label>
+            <input cFormControl id="inputmime_type" [(ngModel)]="updatecmstemplate.mime_type"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <div fxLayout="row" fxLayoutGap="10px">
+            <mat-slide-toggle [(ngModel)]="updatecmstemplate.template_wa_components"
+                [ngModelOptions]="{standalone: true}">template_wa_components
+            </mat-slide-toggle>
+            <mat-slide-toggle [(ngModel)]="updatecmstemplate.enable" [ngModelOptions]="{standalone: true}"> enable
+            </mat-slide-toggle>
+        </div>
+    </form>
+</div>
+<div class="btn-toolbar">
+    <button cButton style="float: right; margin-right: 30px;" (click)="updatedoCmsTemplate()">Update</button>
+    <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+</div>
+
+<div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h3> Cms Template was updated!</h3>
+    <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+        mat-flat-button color="warn">Close</button>
+</div>
+<div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+    <h3>{{error_message}}</h3>
+</div>

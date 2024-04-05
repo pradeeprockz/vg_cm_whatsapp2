@@ -1,0 +1,49 @@
+<form cForm class="row g-3" [formGroup]="form1">
+  <c-col [md]="6">
+    <label cLabel for="inputName">Name</label>
+    <input cFormControl Name="inputName" type="text" [(ngModel)]="userDetailsUpdate.name"
+      [ngModelOptions]="{standalone: true}" disabled/>
+  </c-col>
+  <c-col [md]="6">
+    <label cLabel for="inputEmail">Email</label>
+    <input cFormControl id="inputEmail" type="email" [(ngModel)]="userDetailsUpdate.email"
+      [ngModelOptions]="{standalone: true}" disabled />
+  </c-col>
+  <c-col [md]="6">
+    <label cLabel for="inputMobileNo">Mobile No </label>
+    <input cFormControl id="inputMobileNo" type="number" [(ngModel)]="userDetailsUpdate.mobileno"
+      [ngModelOptions]="{standalone: true}" disabled/>
+  </c-col>
+  <c-col [md]="6">
+    <label cLabel for="inputUserid">User Id </label>
+    <input cFormControl id="inputUserid" type="text" [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="userDetailsUpdate.userid" disabled  />
+  </c-col>
+  <c-col [md]="4">
+    <label cLabel for="inputOldPassword"> Old Password</label>
+    <input cFormControl id="inputOldPassword" type="password" [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="userDetailsUpdate.old_password"/>
+  </c-col>
+  <c-col [md]="4">
+    <label cLabel for="inputNewPassword"> New Password</label>
+    <input cFormControl id="inputNewPassword" type="password" [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="userDetailsUpdate.password" />
+  </c-col>
+  <c-col [md]="4">
+    <label cLabel for="inputConfirmPassword"> Confirm Password</label>
+    <input cFormControl id="inputConfirmPassword" type="password" [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="confirmPwd" autocomplete="false" />
+      
+    </c-col>
+   <c-col [xs]="12">
+    <c-form-check>
+      <input cFormCheckInput id="gridCheck" name="gridCheck" type="checkbox" [ngModelOptions]="{standalone: true}"
+      [(ngModel)]="userDetailsUpdate.enable" disabled />
+      <label cFormCheckLabel for="gridCheck"> Enable </label>
+    </c-form-check>
+  </c-col>
+  <c-col [xs]="12">
+    <button cButton type="submit" (click)="updatePassword()"> Submit </button>
+  </c-col>
+  <c-alert *ngIf="isError">{{error_message}}</c-alert>
+</form>

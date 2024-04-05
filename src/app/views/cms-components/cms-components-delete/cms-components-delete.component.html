@@ -1,0 +1,50 @@
+<h1 align ="center" class ="text-primary">Cms Delete Components </h1>
+<div>
+    <table class="container">
+        <tr>
+            <th> id</th>
+            <td>{{deletecmscomponents.id}}</td>
+        </tr>
+        <tr>
+            <th>client_number</th>
+            <td>{{deletecmscomponents.client_number}}</td>
+        </tr>
+        <tr>
+            <th>sname</th>
+            <td>{{deletecmscomponents.sname}}</td>
+        </tr>
+        <tr>
+            <th>type</th>
+            <td>{{deletecmscomponents.type}}</td>
+        </tr>
+        <tr>
+            <th>parameters</th>
+            <td>{{deletecmscomponents.parameters}}</td>
+        </tr>
+        <tr>
+            <th>sub_type</th>
+            <td>{{deletecmscomponents.sub_type}}</td>
+        </tr>
+        <tr>
+            <th>index</th>
+            <td>{{deletecmscomponents.index}}</td>
+        </tr>
+        <tr>
+            <th>index</th>
+            <td>{{deletecmscomponents.index}}</td>
+        </tr>
+        
+
+
+    </table>
+</div>
+<div class="btn-toolbar">
+    <button cButton style="float: right; margin-right: 30px;" (click)="deletedoCmsComponents()">Delete</button>
+    <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+</div> <br /><br />
+<div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h2>Cms Delete Components is successfully deleted</h2>
+</div>
+<div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+    <h2>{{error_message}}</h2>
+</div>

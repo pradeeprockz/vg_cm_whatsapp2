@@ -1,0 +1,51 @@
+<h1 align="center" class="text-primary"> Create CMS Components </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+<div class="container">
+  <form cForm class="row g-3" *ngIf="isAuthenticated">
+    <c-col [md]="4">
+      <label cLabel for="inputclient_number">client_number</label>
+      <input cFormControl id="inputclient_number" type="client_number" [(ngModel)]="createcmscomponents.client_number"
+        [ngModelOptions]="{standalone: true}" />
+    </c-col>
+    <c-col [md]="4">
+      <label cLabel for="inputsname">sname</label>
+      <input cFormControl id="inputsname" type="sname" [(ngModel)]="createcmscomponents.sname"
+        [ngModelOptions]="{standalone: true}" />
+    </c-col>
+    <c-col [md]="4">
+      <label cLabel for="inputtype">type</label>
+      <select cSelect id="inputtype" [(ngModel)]="createcmscomponents.type" [ngModelOptions]="{standalone: true}">
+        <option value="body">body</option>
+        <option value="header">header</option>
+      </select>
+    </c-col>
+    <c-col [md]="4">
+      <label cLabel for="inputsub_type">sub_type</label>
+      <input cFormControl id="inputsub_type" [(ngModel)]="createcmscomponents.sub_type"
+        [ngModelOptions]="{standalone: true}" />
+    </c-col>
+    <c-col [md]="4">
+      <label cLabel for="inputindex">index</label>
+      <input cFormControl id="inputindex" [(ngModel)]="createcmscomponents.index"
+        [ngModelOptions]="{standalone: true}" />
+    </c-col>
+    <mat-slide-toggle [(ngModel)]="createcmscomponents.parameters" [ngModelOptions]="{standalone: true}">
+      parameters
+    </mat-slide-toggle>
+
+    <div>
+      <button mat-icon-button class="btn btn-primary" color="primary" type="submit"
+        (click)="creategetCmsComponents()">Create</button>
+      <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+        mat-flat-button color="warn">Close</button>
+    </div>
+  </form>
+  <div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h2>You successfully created a CMS Components </h2>
+    <button mat-button align="center" class="text-primary" (click)="newCmsComponents()">Create CMS Components</button>
+  </div>
+  <div *ngIf="isError" class="alert alert-danger" role="alert">
+    <h3>{{error_message}}</h3>
+
+  </div>
+</div>

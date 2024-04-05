@@ -1,0 +1,97 @@
+<h1 align ="center" class ="text-primary">Cms Delete Template </h1>
+<div>
+    <table class="container">
+        <tr>
+            <th> id</th>
+            <td>{{deletecmstemplate.id}}</td>
+        </tr>
+        <tr>
+            <th>client_number</th>
+            <td>{{deletecmstemplate.client_number}}</td>
+        </tr>
+        <tr>
+            <th>sname</th>
+            <td>{{deletecmstemplate.sname}}</td>
+        </tr>
+        <tr>
+            <th>template_wa_Namespace</th>
+            <td>{{deletecmstemplate.template_wa_Namespace}}</td>
+        </tr>
+        <tr>
+            <th>template_wa_elementname</th>
+            <td>{{deletecmstemplate.template_wa_elementname}}</td>
+        </tr>
+        <tr>
+            <th>language_policy</th>
+            <td>{{deletecmstemplate.language_policy}}</td>
+        </tr>
+        <tr>
+            <th>language_code</th>
+            <td>{{deletecmstemplate.language_code}}</td>
+        </tr>
+        <tr>
+            <th>language_code</th>
+            <td>{{deletecmstemplate.language_code}}</td>
+        </tr>
+        <tr>
+            <th>template_wa_components</th>
+            <td>{{deletecmstemplate.template_wa_components}}</td>
+        </tr>
+        <tr>
+            <th>msg_text</th>
+            <td>{{deletecmstemplate.msg_text}}</td>
+        </tr>
+        <tr>
+            <th>contacts</th>
+            <td>{{deletecmstemplate.contacts}}</td>
+        </tr>
+        <tr>
+            <th>location_latitude</th>
+            <td>{{deletecmstemplate.location_latitude}}</td>
+        </tr>
+        <tr>
+            <th>location_longitude</th>
+            <td>{{deletecmstemplate.location_longitude}}</td>
+        </tr>
+        <tr>
+            <th>lable</th>
+            <td>{{deletecmstemplate.lable}}</td>
+        </tr>
+        <tr>
+            <th>search_query</th>
+            <td>{{deletecmstemplate.search_query}}</td>
+        </tr>
+        <tr>
+            <th>media_name</th>
+            <td>{{deletecmstemplate.media_name}}</td>
+        </tr>
+        <tr>
+            <th>mime_type</th>
+            <td>{{deletecmstemplate.mime_type}}</td>
+        </tr>
+        <tr>
+            <th>media_uri</th>
+            <td>{{deletecmstemplate.media_uri}}</td>
+        </tr>
+        <tr>
+            <th>mime_type</th>
+            <td>{{deletecmstemplate.mime_type}}</td>
+        </tr>
+        <tr>
+            <th>enable</th>
+            <td>{{deletecmstemplate.enable}}</td>
+        </tr>
+
+
+    </table>
+</div>
+<div class="btn-toolbar">
+    <button cButton style="float: right; margin-right: 30px;" (click)="deletedoCmsDeleteTemplate()">Delete</button>
+    <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+</div> <br /><br />
+<div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h2>Cms Delete Template is successfully deleted</h2>
+</div>
+<div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+    <h2>{{error_message}}</h2>
+</div>

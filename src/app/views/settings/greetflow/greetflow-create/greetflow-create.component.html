@@ -1,0 +1,74 @@
+<h1 align="center" class="text-primary"> Create Greet Flow  </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+<div class="container">
+    <form cForm class="row g-3" *ngIf="isAuthenticated">
+        <c-col [md]="4">
+            <label cLabel for="inputsubapp_name">subapp_name</label>
+            <input cFormControl id="inputsubapp_name" type="subapp_name" [(ngModel)]="creategreetflow.subapp_name"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputlevel_name">level_name</label>
+            <input cFormControl id="inputlevel_name" type="level_name" [(ngModel)]="creategreetflow.level_name"
+                [ngModelOptions]="{standalone: true}" disabled/>
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputold_level">old_level</label>
+            <input cFormControl id="inputold_level" [(ngModel)]="creategreetflow.old_level"
+                [ngModelOptions]="{standalone: true}" disabled/>
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputnext_level">next_level</label>
+            <input cFormControl id="inputnext_level" [(ngModel)]="creategreetflow.next_level"
+                [ngModelOptions]="{standalone: true}" disabled/>
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputinput">input</label>
+            <input cFormControl id="inputinput" [(ngModel)]="creategreetflow.input"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputappand_text">appand_text</label>
+            <input cFormControl id="inputappand_text" type="appand_text" [(ngModel)]="creategreetflow.appand_text"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputtype_content">type_content</label>
+            <input cFormControl id="inputtype_content" type="type_content" [(ngModel)]="creategreetflow.type_content"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputtext_content">text_content</label>
+            <input cFormControl id="inputtext_content" [(ngModel)]="creategreetflow.text_content"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputcontent_path">content_path</label>
+            <input cFormControl id="inputcontent_path" [(ngModel)]="creategreetflow.content_path"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputremarks">remarks</label>
+            <input cFormControl id="inputremarks" [(ngModel)]="creategreetflow.remarks"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <mat-slide-toggle [(ngModel)]="creategreetflow.enable" [ngModelOptions]="{standalone: true}">
+            enable
+        </mat-slide-toggle>
+
+        <div>
+            <button mat-icon-button class="btn btn-primary" color="primary" type="submit"
+                (click)="createGreetFlow()">Create</button>
+            <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+                mat-flat-button color="warn">Close</button>
+        </div>
+    </form>
+    <div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+        <h2>You successfully created a GreetFlow </h2>
+        <button mat-button align="center" class="text-primary" (click)="newGreetFlow()">Create GreetFlow</button>
+    </div>
+    <div *ngIf="isError" class="alert alert-danger" role="alert">
+        <h3>{{error_message}}</h3>
+
+    </div>
+</div>

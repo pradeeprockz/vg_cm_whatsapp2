@@ -1,0 +1,89 @@
+<h1 align="center" class="text-primary">  Update CMS Temp Wa Comp Header Params </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+
+<div class="container">
+    <form cForm class="row g-3" *ngIf="isAuthenticated">
+        <c-col [md]="4">
+            <label cLabel for="inputClientNumber">client_number</label>
+            <input cFormControl id="inputEmail4" type="client_number" [(ngModel)]="updatecmstempwacompheaderparams.client_number"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputSName">sname</label>
+            <input cFormControl id="inputSName" type="sname" [(ngModel)]="updatecmstempwacompheaderparams.sname"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputcomponents_id">components_id</label>
+            <input cFormControl id="inputcomponents_id" [(ngModel)]="updatecmstempwacompheaderparams.components_id"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputType">Type</label>
+            <input cFormControl id="inputType" [(ngModel)]="updatecmstempwacompheaderparams.type"
+            [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputparam_name">param_name</label>
+            <input cFormControl id="inputparam_name" [(ngModel)]="updatecmstempwacompheaderparams.param_name"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputcurrency_fallback_value">currency_fallback_value</label>
+            <input cFormControl id="inputcurrency_fallback_value"
+                [(ngModel)]="updatecmstempwacompheaderparams.currency_fallback_value" [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmsg_text">msg_text</label>
+            <input cFormControl id="inputmsg_text" type="msg_text" [(ngModel)]="updatecmstempwacompheaderparams.msg_text"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputcurrent_code">current_code</label>
+            <input cFormControl id="inputcurrent_code" [(ngModel)]="updatecmstempwacompheaderparams.current_code"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputdate_time">date_time</label>
+            <input type=datetime-local step="1" [(ngModel)]="updatecmstempwacompheaderparams.date_time"
+            [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputMedia_Name">media_name</label>
+            <input cFormControl id="inputMedia_Name" [(ngModel)]="updatecmstempwacompheaderparams.media_name"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmedia_uri">media_uri</label>
+            <input cFormControl id="inputmedia_uri" [(ngModel)]="updatecmstempwacompheaderparams.media_uri"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmine_type">mine_type</label>
+            <input cFormControl id="inputmine_type" [(ngModel)]="updatecmstempwacompheaderparams.mine_type"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <div fxLayout="row" fxLayoutGap="10px">
+            <mat-slide-toggle [(ngModel)]="updatecmstempwacompheaderparams.is_edit" [ngModelOptions]="{standalone: true}">is_edit
+            </mat-slide-toggle>
+            <mat-slide-toggle [(ngModel)]="updatecmstempwacompheaderparams.enable" [ngModelOptions]="{standalone: true}">
+                enable
+            </mat-slide-toggle>
+        </div>
+    </form>
+    </div>
+        <div class="btn-toolbar">
+            <button cButton style="float: right; margin-right: 30px;" 
+            (click)="updateCmsTempWaCompHeaderParams()">Update</button>
+            <button cButton class="btn btn-primary" (click)="closeDialog()">Close</button>
+        </div>
+
+<div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h3> CMS Temp Wa Comp Header Params was updated!</h3>
+    <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+        mat-flat-button color="warn">Close</button>
+</div>
+<div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
+    <h3>{{error_message}}</h3>
+</div>
+

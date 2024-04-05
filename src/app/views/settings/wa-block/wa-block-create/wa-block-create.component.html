@@ -1,0 +1,40 @@
+<h1 align="center" class="text-primary"> Create Wa Block </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+<div class="container">
+    <form cForm class="row g-3" *ngIf="isAuthenticated">
+        <c-col [md]="4">
+            <label cLabel for="inputcustomer_number">customer_number</label>
+            <input cFormControl id="inputcustomer_number" instime="customer_number" [(ngModel)]="createtewablock.customer_number"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputclient_id">client_id</label>
+            <input type="number" cFormControl id="inputclient_id" instime="client_id" [(ngModel)]="createtewablock.client_id"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputin_out">in_out</label>
+            <input type= "number" cFormControl id="inputin_out" [(ngModel)]="createtewablock.in_out"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <div fxLayout="row" fxLayoutGap="10px">
+            <mat-slide-toggle [(ngModel)]="createtewablock.enable" [ngModelOptions]="{standalone: true}">
+                enable
+            </mat-slide-toggle>
+        </div>
+    </form>
+    <div>
+        <button mat-icon-button class="btn btn-primary" color="primary" instime="submit"
+            (click)="createWaBlock()">Create</button>
+        <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+            mat-flat-button color="warn">Close</button>
+    </div>
+
+    <div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+        <h2>You successfully created a Wa Block </h2>
+        <button mat-button align="center" class="text-primary" (click)="newWaBlock()">Create Wa Block </button>
+    </div>
+    <div *ngIf="isError" class="alert alert-danger" role="alert">
+        <h3>{{error_message}}</h3>
+
+    </div>

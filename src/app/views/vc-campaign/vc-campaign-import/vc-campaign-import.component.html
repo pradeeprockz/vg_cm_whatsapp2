@@ -1,0 +1,70 @@
+<h1 align="center" class="text-primary">Campaign Import</h1>
+<div *ngIf="!campaignid">
+  <br />
+  <p>This campaign is not accessible</p>
+</div>
+<mat-card class="example-card" *ngIf="!isAuthenticated">
+  <mat-card-header>
+    <mat-card-title>Campaign mobile import</mat-card-title>
+    <mat-card-title>You are not eligible to authenticated for this form
+    </mat-card-title>
+  </mat-card-header>
+</mat-card>
+
+<!--c-spinner color="primary">Data Loading</c-spinner-->
+<div class="container">
+  <form cForm *ngIf="campaignid && isAuthenticated" class="row g-3" [formGroup]="form1">
+    <c-col [md]="4">
+      <label cLabel id="inputtext4">Campaign Id</label>
+      <input cFormControl placeholder="CampaignId " [(ngModel)]="campaignid" name="campaign_id"
+        [ngModelOptions]="{standalone: true}" disabled="true" />
+    </c-col>
+    <c-col [md]="4">
+      <label cLabel id="inputtext4">Campaign type</label>
+      <input cFormControl placeholder="CampaignType " [(ngModel)]="campigntype" name="campaign_type"
+        [ngModelOptions]="{standalone: true}" disabled="true" />
+    </c-col>
+    <c-col [md]="4">
+      <label cLabel id="inputtext4">Paramater count </label>
+      <input cFormControl placeholder="param_count" [(ngModel)]="param_count" name="param_count"
+        [ngModelOptions]="{standalone: true}" disabled="true" />
+    </c-col>
+    <div *ngIf="campaingParmsCnt.campaign_type==0">
+      <div>
+        <c-row>
+          <c-col lg="6">
+            <label cLabel id="inputtext4">Start Date</label>
+            <input cFormControl type="datetime-local" step="2" placeholder="start_date" [(ngModel)]="start_date"
+              name="start_date" required [ngModelOptions]="{ standalone: true }" />
+          </c-col>
+
+          <c-col lg="6">
+            <label cLabel id="inputtext4">End Date</label>
+            <input cFormControl type="datetime-local" step="2" placeholder="end_date" [(ngModel)]="end_date"
+              name="end_date" required [ngModelOptions]="{ standalone: true }" />
+          </c-col>
+        </c-row>
+      </div>
+    </div>
+    <div>
+      <input type="file" color="primary" (change)="onFileChange($event)" multiple="false" />
+    </div>
+    <div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+      <h2>{{ error_message }}</h2>
+    </div>
+    <div *ngIf="isError " class="alert alert-danger" role="alert">
+      <h2>{{ error_message }}</h2>
+    </div>
+    <div>
+      <button mat-icon-button *ngIf="!(submitted && !isError)" class="btn btn-primary" color="primary" type="submit"
+        (click)="udateMobileData()">
+        Insert
+      </button>
+      <button class="btn btn-primary margin-left" style="margin: 5px" mat-icon-button (click)="closeDialog()"
+        mat-flat-button color="warn">
+        Close
+      </button>
+      <c-spinner color="primary" *ngIf="spinnerService.visibility | async" mode="indeterminate"></c-spinner>
+    </div>
+    <br/>
+  </form>

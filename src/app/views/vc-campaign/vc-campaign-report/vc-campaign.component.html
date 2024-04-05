@@ -1,0 +1,146 @@
+<h1 align="center" class="text-primary">Campaign Report</h1>
+<h1 align="center" *ngIf="!isAuthenticated" class="text-primary">
+  You are not eligible to authorized for this form
+</h1>
+<div class="main-body" *ngIf="isAuthenticated">
+  <mat-form-field >
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. ium"
+      #input
+    />
+  </mat-form-field>
+
+  <div>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <tr>
+        <td>
+          <!-- First Column ID-->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- Name Column -->
+          <ng-container matColumnDef="cname">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.cname }}</td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- from_cli Column -->
+          <ng-container matColumnDef="template_sname">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>SName</th>
+            <td mat-cell *matCellDef="let element">{{ element.template_sname }}</td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- from_cli Column -->
+          <ng-container matColumnDef="param_count">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Param Count</th>
+            <td mat-cell *matCellDef="let element">{{ element.param_count }}</td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- First Column ID-->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+          </ng-container>
+        </td>
+
+        <td>
+          <!-- First Column ID-->
+          <ng-container matColumnDef="campaign_type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Campaign type</th>
+            <td mat-cell *matCellDef="let element">{{ element.campaign_type==0?"Bulk Push":"Schedule" }}</td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- First Column ID-->
+          <ng-container matColumnDef="agent_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>agent_id</th>
+            <td mat-cell *matCellDef="let element">{{ element.agent_id }}</td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- retryinterval Column ID-->
+          <ng-container matColumnDef="start_date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>start_date</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.start_date }}
+            </td>
+          </ng-container>
+        </td>
+        <td>          
+        <td>
+          <!-- scheduletime Column ID-->
+          <ng-container matColumnDef="end_date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              end_date
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.end_date }}
+            </td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- scheduletime Column ID-->
+          <ng-container matColumnDef="day_start">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>day_start</th>
+            <td mat-cell *matCellDef="let element">{{ element.day_start }}</td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- scheduletime Column ID-->
+          <ng-container matColumnDef="day_end">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              day_end
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.day_end }}</td>
+          </ng-container>
+        </td>
+        <td>
+          <!-- resumetime Column ID-->
+          <ng-container matColumnDef="instime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              instime
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.instime }}
+            </td>
+          </ng-container>
+        </td>
+        
+
+        <!-- import Column -->
+        <ng-container matColumnDef="import">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Import</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              color="primary"
+              (click)="import(element['id'],element['param_count'],element['campaign_type'])"
+            >
+              <mat-icon>save_alt</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <!-- prompts Column -->
+       
+      </tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<h1 align="center" class="text-primary"> Create CMS Template </h1>
+<h1 *ngIf="!isAuthenticated">You are not eligible to authenticated for this form </h1>
+<div class="container">
+    <form cForm class="row g-3" *ngIf="isAuthenticated">
+        <c-col [md]="4">
+            <label cLabel for="inputClientNumber">client_number</label>
+            <input cFormControl id="inputEmail4" type="client_number" [(ngModel)]="createcmstemplate.client_number"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputSName">sname</label>
+            <input cFormControl id="inputSName" type="sname" [(ngModel)]="createcmstemplate.sname"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputTemplate_wa_namespace">template_wa_Namespace</label>
+            <input cFormControl id="inputTemplate_wa_namespace" [(ngModel)]="createcmstemplate.template_wa_Namespace"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputElementName">template_wa_elementname</label>
+            <input cFormControl id="inputlanguage_policy" [(ngModel)]="createcmstemplate.template_wa_elementname"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputlanguage_policy">language_policy</label>
+            <input cFormControl id="inputlanguage_policy" [(ngModel)]="createcmstemplate.language_policy"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputlanguage_code">language_code</label>
+            <input cFormControl id="inputlanguage_code" [(ngModel)]="createcmstemplate.language_code"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmsg_text">msg_text</label>
+            <input cFormControl id="inputmsg_text" type="msg_text" [(ngModel)]="createcmstemplate.msg_text"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputcontacts">contacts</label>
+            <input cFormControl id="inputcontacts" [(ngModel)]="createcmstemplate.contacts"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputloacation_latitude">loacation_latitude</label>
+            <input cFormControl id="inputloacation_latitude" [(ngModel)]="createcmstemplate.location_latitude"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputlocation_longitude">location_longitude</label>
+            <input cFormControl id="inputlocation_longitude" [(ngModel)]="createcmstemplate.location_longitude"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputLable">lable</label>
+            <input cFormControl id="inputLable" [(ngModel)]="createcmstemplate.lable"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputsearch_query">search_query</label>
+            <input cFormControl id="inputsearch_query" [(ngModel)]="createcmstemplate.search_query"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputMedia_Name">media_name</label>
+            <input cFormControl id="inputMedia_Name" [(ngModel)]="createcmstemplate.media_name"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmedia_uri">media_uri</label>
+            <input cFormControl id="inputmedia_uri" [(ngModel)]="createcmstemplate.media_uri"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <c-col [md]="4">
+            <label cLabel for="inputmime_type">mime_type</label>
+            <input cFormControl id="inputmime_type" [(ngModel)]="createcmstemplate.mime_type"
+                [ngModelOptions]="{standalone: true}" />
+        </c-col>
+        <div fxLayout="row" fxLayoutGap="10px">
+        <mat-slide-toggle [(ngModel)]="createcmstemplate.template_wa_components"
+            [ngModelOptions]="{standalone: true}">template_wa_components
+        </mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="createcmstemplate.enable" [ngModelOptions]="{standalone: true}"> enable
+        </mat-slide-toggle>
+        </div>
+    </form>
+</div>
+<div>
+    <button mat-icon-button class="btn btn-primary" color="primary" type="submit"
+        (click)="creategetCmsTemplate()">Create</button>
+    <button class="btn btn-primary margin-left" style="margin:5px;" mat-icon-button (click)="closeDialog()"
+        mat-flat-button color="warn">Close</button>
+</div>
+
+<div *ngIf="!isError && submitted" class="alert alert-primary" role="alert">
+    <h2>You successfully created a CMS Template </h2>
+    <button mat-button align="center" class="text-primary" (click)="newCmsTemplate()">Create CMS Template</button>
+</div>
+<div *ngIf="isError" class="alert alert-danger" role="alert">
+    <h3>{{error_message}}</h3>
+
+</div>
